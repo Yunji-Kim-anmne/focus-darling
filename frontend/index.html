@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus, Darling</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-blair">
+
+  <div id="app">
+
+    <!-- 캐릭터 선택 -->
+    <div id="character-select">
+      <button class="char-btn" id="btn-rory" onclick="selectCharacter('rory')">Rory</button>
+      <button class="char-btn active" id="btn-blair" onclick="selectCharacter('blair')">Blair</button>
+    </div>
+
+    <!-- 캐릭터 멘트 -->
+    <p id="character-quote"></p>
+
+    <!-- 타이머 -->
+    <div id="timer-display">25:00</div>
+    <p id="session-label">집중 세션 (25분)</p>
+
+    <!-- 버튼 -->
+    <div id="timer-buttons">
+      <button class="timer-btn" onclick="startTimer()">Start</button>
+      <button class="timer-btn" onclick="pauseTimer()">Pause</button>
+      <button class="timer-btn" onclick="resetTimer()">Reset</button>
+    </div>
+
+    <!-- 세션 카운터 -->
+    <p id="session-count">완료한 세션: 0</p>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

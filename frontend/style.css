@@ -1,0 +1,202 @@
+/* ── 구글 폰트 ─────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap');
+
+/* ── 기본 리셋 ─────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── 기본 테마 (블레어) ────────────────────────── */
+body {
+  font-family: 'Lato', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #0f1b35;
+  color: #f5f0e8;
+  transition: all 0.6s ease;
+}
+
+/* ── 로리 테마 ─────────────────────────────────── */
+body.theme-rory {
+  background-color: #f5ede0;
+  color: #3b2a1a;
+}
+
+body.theme-rory #app {
+  background-color: #fffaf4;
+  border: 1px solid #d4b896;
+  box-shadow: 0 8px 32px rgba(100, 60, 20, 0.10);
+}
+
+body.theme-rory #character-quote {
+  color: #7a4f2e;
+}
+
+body.theme-rory #timer-display {
+  color: #8b2e2e;
+}
+
+body.theme-rory #session-label {
+  color: #a0673a;
+}
+
+body.theme-rory #session-count {
+  color: #a0673a;
+}
+
+body.theme-rory .char-btn {
+  background: transparent;
+  border: 1.5px solid #c4956a;
+  color: #7a4f2e;
+}
+
+body.theme-rory .char-btn:hover,
+body.theme-rory .char-btn.active {
+  background-color: #8b2e2e;
+  color: #fffaf4;
+  border-color: #8b2e2e;
+}
+
+body.theme-rory .timer-btn {
+  background-color: #8b2e2e;
+  color: #fffaf4;
+}
+
+body.theme-rory .timer-btn:hover {
+  background-color: #6e2424;
+}
+
+/* ── 블레어 테마 ────────────────────────────────── */
+body.theme-blair {
+  background-color: #0f1b35;
+  color: #f5f0e8;
+}
+
+body.theme-blair #app {
+  background-color: #162040;
+  border: 1px solid #c9a84c;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40);
+}
+
+body.theme-blair #character-quote {
+  color: #c9a84c;
+}
+
+body.theme-blair #timer-display {
+  color: #f5f0e8;
+}
+
+body.theme-blair #session-label {
+  color: #a0aec0;
+}
+
+body.theme-blair #session-count {
+  color: #a0aec0;
+}
+
+body.theme-blair .char-btn {
+  background: transparent;
+  border: 1.5px solid #c9a84c;
+  color: #c9a84c;
+}
+
+body.theme-blair .char-btn:hover,
+body.theme-blair .char-btn.active {
+  background-color: #c9a84c;
+  color: #0f1b35;
+}
+
+body.theme-blair .timer-btn {
+  background-color: #c9a84c;
+  color: #0f1b35;
+}
+
+body.theme-blair .timer-btn:hover {
+  background-color: #a8863a;
+}
+
+/* ── 앱 컨테이너 ────────────────────────────────── */
+#app {
+  width: 420px;
+  padding: 48px 40px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.6s ease;
+}
+
+/* ── 캐릭터 선택 버튼 ───────────────────────────── */
+#character-select {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.char-btn {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  padding: 8px 24px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.05em;
+}
+
+/* ── 캐릭터 멘트 ────────────────────────────────── */
+#character-quote {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 48px;
+  margin-bottom: 36px;
+  transition: opacity 0.4s ease;
+}
+
+/* ── 타이머 숫자 ────────────────────────────────── */
+#timer-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+  transition: color 0.6s ease;
+}
+
+/* ── 세션 레이블 ────────────────────────────────── */
+#session-label {
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+/* ── 타이머 버튼 ────────────────────────────────── */
+#timer-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.timer-btn {
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: all 0.3s ease;
+}
+
+/* ── 세션 카운터 ────────────────────────────────── */
+#session-count {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
