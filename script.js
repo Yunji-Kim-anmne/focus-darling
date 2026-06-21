@@ -124,3 +124,18 @@ function resetTimer() {
 // ── 초기 실행 ──────────────────────────────────────
 updateDisplay();
 showQuote('start');
+// ── 배경 음악 ───────────────────────────────────
+const playlists = {
+  rory: 'https://www.youtube.com/embed/videoseries?list=PLOzDu3MXeV3DqK3oaN0by6WhTny3528hZ&autoplay=1',
+  blair: 'https://www.youtube.com/embed/videoseries?list=PLOzDu3MXeV3AV0-p3JVNl9sfT20HQGX5g&autoplay=1',
+};
+
+function playMusic(character) {
+  const player = document.getElementById('youtube-player');
+  player.src = playlists[character];
+}
+
+function stopMusic() {
+  const player = document.getElementById('youtube-player');
+  player.src = '';
+}

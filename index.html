@@ -37,5 +37,26 @@
   </div>
 
   <script src="script.js"></script>
+  <!-- 배경 음악 -->
+    <div id="music-section">
+      <p id="music-label">🎵 Background Music</p>
+      <div id="music-buttons">
+        <button class="music-btn" onclick="playMusic('rory')">Rory's Playlist</button>
+        <button class="music-btn" onclick="playMusic('blair')">Blair's Playlist</button>
+        <button class="music-btn" onclick="stopMusic()">Stop</button>
+      </div>
+      <div id="youtube-container">
+        <iframe
+          id="youtube-player"
+          width="100%"
+          height="80"
+          src=""
+          title="Background Music"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
 </body>
 </html>
