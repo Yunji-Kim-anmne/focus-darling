@@ -222,3 +222,52 @@ function loadMoodboard() {
 updateDisplay();
 showQuote('start');
 loadMoodboard();
+
+// ── 모달 ───────────────────────────────────────
+function openModal() {
+  document.getElementById('modal-overlay').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('active');
+  document.getElementById('image-url-input').value = '';
+}
+
+function handleDragOver(event) {
+  event.preventDefault();
+  document.getElementById('drop-zone').classList.add('dragover');
+}
+
+function handleDragLeave() {
+  document.getElementById('drop-zone').classList.remove('dragover');
+}
+
+function handleDrop(event) {
+  event.preventDefault();
+  document.getElementById('drop-zone').classList.remove('dragover');
+  const files = Array.from(event.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      moodImages.push(e.target.result);
+      saveMoodboard();
+      renderMoodboard();
+    };
+    reader.readAsDataURL(file);
+  });
+  closeModal();
+}
+
+function addImageByUrl() {
+  const input = document.getElementById('image-url-input');
+  const url = input.value.trim();
+  if (!url) return;
+  if (!url.startsWith('http')) {
+    alert('올바른 이미지 URL을 입력해주세요.');
+    return;
+  }
+  moodImages.push(url);
+  saveMoodboard();
+  renderMoodboard();
+  closeModal();
+}

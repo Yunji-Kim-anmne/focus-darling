@@ -1,6 +1,5 @@
 /* ── 구글 폰트 ─────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap');
 /* ── 커스텀 폰트 ───────────────────────────────── */
 @font-face {
   font-family: 'Gioviale';
@@ -392,3 +391,100 @@ body.theme-rory #music-section {
   border-radius: 8px;
   overflow: hidden;
 }
+/* ── 모달 ─────────────────────────────────────── */
+#modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+#modal-overlay.active {
+  display: flex;
+}
+
+#modal {
+  background: #fff0f4;
+  border-radius: 16px;
+  padding: 36px 32px;
+  width: 420px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+}
+
+#modal-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #c4607a;
+  text-align: center;
+  letter-spacing: 0.06em;
+}
+
+#drop-zone {
+  border: 2px dashed #e8a0b4;
+  border-radius: 12px;
+  padding: 32px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #b07a8a;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+#drop-zone p:first-child {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+#drop-zone:hover,
+#drop-zone.dragover {
+  background-color: #fce8ef;
+  border-color: #c4607a;
+}
+
+#modal-or {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #b07a8a;
+  letter-spacing: 0.05em;
+}
+
+#url-input-row {
+  display: flex;
+  gap: 8px;
+}
+
+#image-url-input {
+  flex: 1;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid #e8a0b4;
+  background: transparent;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  color: #3d1a24;
+}
+
+#modal-close-btn {
+  align-self: center;
+  padding: 8px 28px;
+}
+
+body.theme-rory #modal { background: #fff9f7; }
+body.theme-rory #modal-title { color: #c47060; }
+body.theme-rory #drop-zone { border-color: #e8c0b0; color: #b09080; }
+body.theme-rory #image-url-input { border-color: #e8c0b0; color: #3d1a24; }
+
+body.theme-hermione #modal { background: #faf5fc; border: 1px solid #c8a0d8; }
+body.theme-hermione #modal-title { color: #a070c0; }
+body.theme-hermione #drop-zone { border-color: #c8a0d8; color: #9080a8; }
+body.theme-hermione #image-url-input { border-color: #c8a0d8; color: #2d1a35; }
