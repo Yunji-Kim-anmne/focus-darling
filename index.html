@@ -8,45 +8,68 @@
 </head>
 
 <body class="theme-blair">
+<h1 id="site-title">Focus, Darling</h1>
+  <div id="layout">
 
-  <div id="app">
+    <!-- 왼쪽: 타이머 -->
+    <div id="app">
 
-    <!-- 캐릭터 선택 -->
-    <div id="character-select">
-      <button class="char-btn" id="btn-rory" onclick="selectCharacter('rory')">Rory</button>
-      <button class="char-btn active" id="btn-blair" onclick="selectCharacter('blair')">Blair</button>
+      <!-- 캐릭터 선택 -->
+      <div id="character-select">
+        <button class="char-btn" id="btn-rory" onclick="selectCharacter('rory')">Rory</button>
+        <button class="char-btn active" id="btn-blair" onclick="selectCharacter('blair')">Blair</button>
+        <button class="char-btn" id="btn-hermione" onclick="selectCharacter('hermione')">Hermione</button>
+      </div>
+
+      <!-- 캐릭터 멘트 -->
+      <p id="character-quote"></p>
+
+      <!-- 타이머 -->
+      <div id="timer-display">25:00</div>
+      <p id="session-label">집중 세션 (25분)</p>
+
+      <!-- 타이머 버튼 -->
+      <div id="timer-buttons">
+        <button class="timer-btn" onclick="startTimer()">Start</button>
+        <button class="timer-btn" onclick="pauseTimer()">Pause</button>
+        <button class="timer-btn" onclick="resetTimer()">Reset</button>
+      </div>
+
+      <!-- 세션 카운터 -->
+      <p id="session-count">완료한 세션: 0</p>
+
     </div>
 
-    <!-- 캐릭터 멘트 -->
-    <p id="character-quote"></p>
-
-    <!-- 타이머 -->
-    <div id="timer-display">25:00</div>
-    <p id="session-label">집중 세션 (25분)</p>
-
-    <!-- 버튼 -->
-    <div id="timer-buttons">
-      <button class="timer-btn" onclick="startTimer()">Start</button>
-      <button class="timer-btn" onclick="pauseTimer()">Pause</button>
-      <button class="timer-btn" onclick="resetTimer()">Reset</button>
+    <!-- 오른쪽 위: 무드보드 -->
+    <div id="moodboard">
+      <div id="moodboard-header">
+        <p id="moodboard-title">✨ Mood Board</p>
+        <div id="moodboard-actions">
+          <label for="image-upload" class="timer-btn upload-btn">+ 이미지 추가</label>
+          <input type="file" id="image-upload" accept="image/*" multiple style="display:none" onchange="uploadImages(event)">
+          <button class="timer-btn" onclick="clearMoodboard()">전체 삭제</button>
+        </div>
+      </div>
+      <div id="image-grid"></div>
     </div>
 
-    <!-- 세션 카운터 -->
-    <p id="session-count">완료한 세션: 0</p>
-
-    <!-- 배경 음악 -->
+    <!-- 오른쪽 아래: 플레이리스트 -->
     <div id="music-section">
-      <p id="music-label">🎵 Background Music</p>
-      <div id="music-buttons">
-        <button class="music-btn" onclick="playMusic('rory')">Rory's Playlist</button>
-        <button class="music-btn" onclick="playMusic('blair')">Blair's Playlist</button>
-        <button class="music-btn" onclick="stopMusic()">Stop</button>
+      <p id="music-label">🎵 Playlist</p>
+      <div id="music-input-row">
+        <input
+          type="text"
+          id="music-url-input"
+          placeholder="YouTube 링크를 붙여넣으세요"
+        />
+        <button class="timer-btn" onclick="loadMusic()">재생</button>
+        <button class="timer-btn" onclick="stopMusic()">정지</button>
       </div>
       <div id="youtube-container">
         <iframe
           id="youtube-player"
           width="100%"
-          height="80"
+          height="200"
           src=""
           title="Background Music"
           frameborder="0"
