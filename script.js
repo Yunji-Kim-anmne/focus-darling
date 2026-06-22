@@ -55,6 +55,25 @@ function updateDisplay() {
     `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
+// ── 알람 소리 ──────────────────────────────────
+function playAlarm() {
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  
+  const notes = [523, 659, 784, 1047]; // 도-미-솔-도 (C5-E5-G5-C6)
+  notes.forEach((freq, i) => {
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.type = 'sine';
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.25);
+    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + i * 0.25 + 0.4);
+    osc.start(ctx.currentTime + i * 0.25);
+    osc.stop(ctx.currentTime + i * 0.25 + 0.4);
+  });
+}
+
 // ── 세션 전환 ──────────────────────────────────────
 function switchSession() {
   if (isFocusSession) {
@@ -77,19 +96,24 @@ function switchSession() {
     isFocusSession = true;
   }
   updateDisplay();
+
+  // 3초 후 자동 시작
+  setTimeout(() => {
+    startTimer();
+  }, 3000);
 }
 
 // ── 타이머 시작 ────────────────────────────────────
 function startTimer() {
   if (isRunning) return;
   isRunning = true;
-  showQuote('start');
   intervalId = setInterval(() => {
     timeLeft--;
     updateDisplay();
     if (timeLeft === 0) {
       clearInterval(intervalId);
       isRunning = false;
+      playAlarm();
       showQuote(isFocusSession ? 'focusEnd' : 'breakEnd');
       setTimeout(switchSession, 1500);
     }
